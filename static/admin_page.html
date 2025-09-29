@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-icons.css" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/admin-management.js"></script>
+
+</head>
+
+<body onload="initAdminPage()">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col">
+                <h1>Pagina di Amministrazione</h1>
+            </div>
+            <div class="col-1 p-2">
+                <button type="button" class="btn btn-primary" id="logout-button"><a href="/admin/logout" style="color: white; text-decoration: none;">Logout</a></button>
+            </div>
+        </div>
+
+
+        <div id="feat_div" class="container w-100">
+            <ul class="nav nav-tabs" id="feat_navbar" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link " id="task-tab" data-bs-toggle="tab" data-bs-target="#task"
+                        type="button" role="tab" aria-controls="task" aria-selected="true">Task</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="map-tab" data-bs-toggle="tab" data-bs-target="#map"
+                        type="button" role="tab" aria-controls="map" aria-selected="true">Mappe</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="task-div">
+                <div class="tab-pane fade show" id="task" role="tabpanel" aria-labelledby="task-tab">
+                    <div class="row align-items-start">
+                        <div class="col-2 p-1">
+                            <button type="button" onclick="emptyElement('task-list'); fetchTask(); setMessage('', 'task-update-div');" class="btn btn-primary m-2" id="refresh-button">Refresh</button>
+                        </div>
+                        <div class="col-2 p-1">
+                            <button type="button" onclick="deleteAllTasks()" class="btn btn-primary m-2" id="refresh-button">Delete all</button>
+                        </div>
+                    </div>
+                    <div class="row align-items-start mb-2">
+                        <div id="task-update-div"></div>
+                    </div>
+                    <div class="row align-items-start" id="task-list">
+                        
+                    </div>
+                </div>
+                <div class="tab-pane fade show active" id="map" role="tabpanel" aria-labelledby="map-tab">
+                    <div class="row align-items-start">
+                        <div class="col-2 p-1">
+                            <button type="button" onclick="emptyElement('map-list'); fetchActiveMap();" class="btn btn-primary m-2" id="refresh-button">Refresh</button>
+                        </div>
+                    </div>
+                    <div class="row align-items-start" id="map-list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
